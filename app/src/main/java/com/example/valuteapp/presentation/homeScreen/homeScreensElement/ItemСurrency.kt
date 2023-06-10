@@ -1,4 +1,4 @@
-package com.example.valuteapp
+package com.example.valuteapp.presentation.homeScreen.homeScreensElement
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,16 +18,17 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.valuteapp.R
 import com.example.valuteapp.model.Currency
 import com.example.valuteapp.model.NameCurrency
 
 @Preview
 @Composable
 fun ItemCurrency() {
+
     Row(
         modifier = Modifier
-            .fillMaxWidth()
-            ,
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         PreviewValueCurrency()

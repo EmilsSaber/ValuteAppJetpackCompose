@@ -1,4 +1,4 @@
-package com.example.valuteapp
+package com.example.valuteapp.presentation.homeScreen.homeScreensElement
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,12 +24,17 @@ fun PurchaseSale() {
             .padding(
                 8.dp,
                 top = 24.dp,
-                end = 12.dp
+                end = 4.dp
             ),
         horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Purchase()
-        Text(text = "09 июня 2023 09:30", color = Color.White)
+        Text(
+            text = "09 июня 2023 09:30",
+            color = Color.White,
+            modifier = Modifier.padding(bottom = 32.dp)
+        )
         Sale()
     }
 }
@@ -41,7 +46,7 @@ private fun Purchase() {
             .padding(
                 top = 12.dp
             )
-            .height(70.dp),
+            .height(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -56,7 +61,7 @@ private fun Sale() {
             .padding(
                 top = 12.dp
             )
-            .height(70.dp),
+            .height(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {

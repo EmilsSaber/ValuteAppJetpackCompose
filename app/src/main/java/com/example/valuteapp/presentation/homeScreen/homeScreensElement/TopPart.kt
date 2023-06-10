@@ -1,4 +1,4 @@
-package com.example.valuteapp
+package com.example.valuteapp.presentation.homeScreen.homeScreensElement
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,10 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.valuteapp.R
 
 @Preview
 @Composable
 fun TopPart() {
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -30,7 +32,6 @@ fun TopPart() {
     ) {
         SettingsIcon()
         Spacer(modifier = Modifier.weight(1f))
-        Logo()
         Box(
             modifier = Modifier
                 .size(83.dp)
@@ -46,11 +47,6 @@ fun TopPart() {
         Spacer(modifier = Modifier.weight(1f))
         NotificationIcon()
     }
-
-}
-
-@Composable
-private fun Logo() {
 
 }
 
