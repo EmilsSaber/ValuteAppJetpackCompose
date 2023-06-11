@@ -19,7 +19,7 @@ import com.example.valuteapp.presentation.homeScreen.homeScreensElement.TopPart
 
 
 @Composable
-fun HomeScreens(navController: NavController) {
+fun HomeScreen(navController: NavController) {
     HomeScreensPreview()
 }
 

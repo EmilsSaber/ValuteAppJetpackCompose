@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.valuteapp.navigation.NavHost
+import com.example.valuteapp.presentation.mainFlowScreen.MainFlowScreen
 import com.example.valuteapp.ui.theme.ValuteAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,9 +13,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            ValuteAppTheme() {
+            ValuteAppTheme {
                 val navController = rememberNavController()
                 NavHost(navController)
+//                MainFlowScreen()
             }
         }
     }
