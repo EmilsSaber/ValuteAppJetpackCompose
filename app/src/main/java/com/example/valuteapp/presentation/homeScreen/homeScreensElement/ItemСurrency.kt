@@ -114,6 +114,7 @@ private fun CurrencyValueList(currencies: List<Currency>) {
     }
 }
 
+
 @Composable
 private fun CurrencyNameList(currencyName: List<NameCurrency>) {
     LazyColumn {
