@@ -14,9 +14,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ValuteAppTheme {
-                val navController = rememberNavController()
-                NavHost(navController)
-//                MainFlowScreen()
+//                val navController = rememberNavController()
+//                NavHost(navController)
+                MainFlowScreen()
             }
         }
     }
