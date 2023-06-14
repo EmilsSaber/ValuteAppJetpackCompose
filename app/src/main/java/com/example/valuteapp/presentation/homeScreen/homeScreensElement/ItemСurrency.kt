@@ -1,6 +1,8 @@
 package com.example.valuteapp.presentation.homeScreen.homeScreensElement
 
+import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,84 +28,75 @@ import com.example.valuteapp.model.Currency
 import com.example.valuteapp.model.NameCurrency
 
 @Composable
-fun ItemCurrency() {
-	ItemCurrencyPreview()
+fun ItemCurrency(onItemClick: (Float) -> Unit) {
+    ItemCurrencyPreview(onItemClick)
 }
-
 @Composable
-private fun CardCurrencyValue(currency: Currency) {
-	Box(
-		modifier = Modifier
-			.background(color = Color.White, shape = RoundedCornerShape(8.dp))
-			.height(42.dp)
-			.width(86.dp),
-		contentAlignment = Alignment.Center
-	) {
-		Text(
-			color = colorResource(id = R.color.lowBlue),
-			text = "${currency.rate}",
-			style = TextStyle(fontWeight = FontWeight.Bold),
-			fontSize = 18.sp
-		)
-	}
+private fun CardCurrencyValue(currency: Currency,  onItemClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .background(color = Color.White, shape = RoundedCornerShape(8.dp))
+            .height(42.dp)
+            .width(86.dp)
+            .clickable { onItemClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            color = colorResource(id = R.color.lowBlue),
+            text = "${currency.rate}",
+            style = TextStyle(fontWeight = FontWeight.Bold),
+            fontSize = 18.sp
+        )
+    }
 }
 
 @Composable
 private fun CardCurrencyName(currencyName: NameCurrency) {
-	Column(
-		modifier = Modifier
-			.width(86.dp)
-			.height(42.dp),
-		verticalArrangement = Arrangement.Center
-	) {
-		Text(
-			modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-			color = colorResource(id = R.color.white),
-			text = "${currencyName.nameCurrency}",
-			style = TextStyle(fontWeight = FontWeight.Bold),
-			fontSize = 18.sp
-		)
-	}
+    Column(
+        modifier = Modifier
+            .width(86.dp)
+            .height(42.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+            color = colorResource(id = R.color.white),
+            text = "${currencyName.nameCurrency}",
+            style = TextStyle(fontWeight = FontWeight.Bold),
+            fontSize = 18.sp
+        )
+    }
 }
+
 @Preview
 @Composable
-private fun ItemCurrencyPreview() {
-	val currencies = listOf(
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f),
-		Currency(rate = 443.5f)
-	)
-	val currencyName = listOf(
-		NameCurrency(nameCurrency = "USD"),
-		NameCurrency(nameCurrency = "EUR"),
-		NameCurrency(nameCurrency = "RUB"),
-		NameCurrency(nameCurrency = "KGS"),
-		NameCurrency(nameCurrency = "GBR"),
-		NameCurrency(nameCurrency = "CNY"),
-		NameCurrency(nameCurrency = "COLD"),
-	)
+ fun ItemCurrencyPreview(onItemClick: (Float) -> Unit= {}) {
+    LazyColumn(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
 
-	LazyColumn(
-		modifier = Modifier.fillMaxWidth(),
-		verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+        items(currencies.size) { index ->
+            val currency = currencies[index]
+            val name = currencyName[index]
 
-		) {
-		items(currencies.size) { index ->
-			val currency = currencies[index]
-			val name = currencyName[index]
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                CardCurrencyValue(currency = currency) {
+                    onItemClick(currency.rate)
+                    Log.d("ololo", "Clicked on currency: ${currency.rate}")
 
-			Row(
-				modifier = Modifier.fillMaxWidth(),
-				horizontalArrangement = Arrangement.SpaceEvenly
-			) {
-				CardCurrencyValue(currency = currency)
-				CardCurrencyName(currencyName = name)
-				CardCurrencyValue(currency = currency)
-			}
-		}
-	}
+                }
+
+                CardCurrencyName(currencyName = name)
+
+                CardCurrencyValue(currency = currency) {
+                    onItemClick(currency.rate)
+                    Log.d("ololo", "Clicked on currency: ${currency.rate}")
+                }
+            }
+        }
+    }
 }

@@ -16,7 +16,7 @@ import com.example.valuteapp.navigation.NavHost
 
 @Composable
 fun MainFlowScreen() {
-	MainFlowScreenPreview()
+    MainFlowScreenPreview()
 }
 
 @Preview
@@ -24,16 +24,21 @@ fun MainFlowScreen() {
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 fun MainFlowScreenPreview() {
-	val navController = rememberNavController()
-	Scaffold(
-		bottomBar = {
-			BottomNavigationView(
-				navController = navController
-			)
-		}
-	) { innerPadding ->
-		Box(Modifier.padding(innerPadding).background(color = Color.White)) {
-			NavHost(navController = navController)
-		}
-	}
+    val navController = rememberNavController()
+    Scaffold(
+        bottomBar = {
+            BottomNavigationView(
+                navController = navController
+            )
+        }
+    ) { innerPadding ->
+        Box(
+            Modifier
+                .padding(innerPadding)
+                .background(color = Color.White)
+        ) {
+            NavHost(navController = navController)
+        }
+    }
 }
+

@@ -25,7 +25,6 @@ import com.example.valuteapp.R
 fun TopPart() {
 	TopPartPreview()
 }
-
 @Composable
 private fun IconColumn(
 	icon: Painter,
