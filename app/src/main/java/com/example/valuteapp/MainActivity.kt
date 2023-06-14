@@ -11,11 +11,8 @@ import com.example.valuteapp.ui.theme.ValuteAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             ValuteAppTheme {
-//                val navController = rememberNavController()
-//                NavHost(navController)
                 MainFlowScreen()
             }
         }

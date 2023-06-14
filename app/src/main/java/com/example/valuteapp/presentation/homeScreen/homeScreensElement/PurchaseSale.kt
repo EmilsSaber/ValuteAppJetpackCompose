@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 fun PurchaseSale() {
 	PreviewPurchaseSale()
 }
-
 @Composable
 fun PreviewPurchaseSale() {
 	Row(

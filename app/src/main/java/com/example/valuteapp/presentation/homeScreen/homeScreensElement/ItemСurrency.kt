@@ -74,12 +74,10 @@ private fun CardCurrencyName(currencyName: NameCurrency) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(16.dp),
-
         ) {
         items(currencies.size) { index ->
             val currency = currencies[index]
             val name = currencyName[index]
-
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
@@ -87,11 +85,8 @@ private fun CardCurrencyName(currencyName: NameCurrency) {
                 CardCurrencyValue(currency = currency) {
                     onItemClick(currency.rate)
                     Log.d("ololo", "Clicked on currency: ${currency.rate}")
-
                 }
-
                 CardCurrencyName(currencyName = name)
-
                 CardCurrencyValue(currency = currency) {
                     onItemClick(currency.rate)
                     Log.d("ololo", "Clicked on currency: ${currency.rate}")
